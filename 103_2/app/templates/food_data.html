@@ -1,0 +1,16 @@
+<table border="1" cellpadding="5" cellspacing="5">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Measurement Size</td>
+        <td>Measurement Unit</td>
+        <td>Calories</td>
+    </tr>
+    {% for row in data %}
+        <tr>
+        {% for d in row %}
+            <td>{{ d }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

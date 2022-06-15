@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Smoked Salmon",
+        "serving_size": 1,
+        "serving_measurement": "oz",
+        "calories": 33
+    },
+    {
+        "name": "Bacon",
+        "serving_size": 1,
+        "serving_measurement": "slice",
+        "calories": 37
+    },
+    {
+        "name": "Toast",
+        "serving_size": 1,
+        "serving_measurement": "slice",
+        "calories": 69
+    },
+    {
+        "name": "Grapefruit",
+        "serving_size": 1,
+        "serving_measurement": "unit",
+        "calories": 82
+    },
+    {
+        "name": "Cereal",
+        "serving_size": 1,
+        "serving_measurement": "cup",
+        "calories": 113
+    },
+    {
+        "name": "Fruit Smoothie",
+        "serving_size": 1,
+        "serving_measurement": "cup",
+        "calories": 130
+    },
+    {
+        "name": "Oatmeal",
+        "serving_size": 1,
+        "serving_measurement": "cup",
+        "calories": 143
+    },
+    {
+        "name": "Scrambled Eggs",
+        "serving_size": 2,
+        "serving_measurement": "unit",
+        "calories": 142
+    },
+    {
+        "name": "Blueberry Muffin",
+        "serving_size": 2,
+        "serving_measurement": "unit",
+        "calories": 426
+    }
+]
