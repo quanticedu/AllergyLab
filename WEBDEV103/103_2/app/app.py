@@ -9,7 +9,7 @@ app = Flask(__name__)
 def success():
     c, conn = connection()
 
-    query = "SELECT * FROM breakfast"
+    query = "SELECT * FROM foods"
     c.execute(query)
 
     data = c.fetchall()
