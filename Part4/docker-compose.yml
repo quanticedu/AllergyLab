@@ -1,0 +1,22 @@
+services:
+    dbhost:
+      image: quanticschool/103mysql
+      # ports:
+      #   - 3306:3306
+    app:
+      build: app/.
+      ports: 
+        - 3006:3006
+      depends_on:
+        - dbhost
+        - redis-server
+    redis-server:
+      image: redis
+      # ports:
+      #   - 6379:6379
+    email:
+      build: email/.
+      ports: 
+        - 25:25
+      depends_on:
+        - redis-server
