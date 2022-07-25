@@ -20,7 +20,8 @@
         {% endfor %}
             <td>
                 <form method="post" action="/submit">
-                    <input type="submit" value="Order 10" name="order1"/>
+                    <input type="hidden" name="button_identifier" value={{row[0]}} />
+                    <input type="submit" value="Submit Order" name="submit_button"/>
                 </form>
             </td>
         </tr>

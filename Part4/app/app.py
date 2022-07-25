@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from dbconnect import connection
 import os
 import redis
@@ -21,8 +21,14 @@ def success():
 
 @app.route("/submit", methods=['POST'])
 def index():
+    c, conn = connection()
+    query = "SELECT NAME FROM foods where ID = " + request.form['button_identifier']
+    c.execute(query)
+    data = c.fetchall()
+    conn.close()
+
     r = redis.Redis(host='redis-server', port=6379, db=0)
-    r.publish('food_info', 'New Order 17171717171')
+    r.publish('food_info', data[0][0])
     return "Order Submitted!"
 
 if __name__ == "__main__":

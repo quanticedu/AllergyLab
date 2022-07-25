@@ -5,15 +5,14 @@ import os
 
 
 # Email Setup
-# from email.mime.text import MIMEText
-# to_addr = os.environ['TO_ADDRESS']
-# print(f'to_addr is {to_addr}')
+to_addr = os.environ['TO_ADDRESS']
+
 class Mail:
     def __init__(self):
         self.port = 465
-        self.smtp_server_domain_name = "smtp.gmail.com" # Move to ENV
-        self.sender_mail = "allergylaborders@gmail.com" # Move to ENV
-        self.password = "qqlthowpeudnywll" # Move to ENV
+        self.smtp_server_domain_name = "smtp.gmail.com"
+        self.sender_mail = os.environ['FROM_ADDRESS']
+        self.password = os.environ['FROM_PASSWORD'] 
 
     def send(self, emails, subject, content):
         ssl_context = ssl.create_default_context()
@@ -31,7 +30,7 @@ r = redis.Redis(host='redis-server', port=6379, db=0)
 p = r.pubsub()
 p.subscribe('food_info')
 
-# Loop to read Redis queue
+# Queue Loop & Email Action
 while True:
     message = p.get_message()
     if message:
@@ -41,7 +40,7 @@ while True:
         if message['data'] != 1:
             mail = Mail()
             # Working - Move to ENV & read from Front-End
-            mail.send(['craig.gardner1@gmail.com'], 'Test AllergyLab Email', 'This is a Test')
+            mail.send([to_addr], 'New Order Generated', "New order generated for " + message['data'].decode())
 
     time.sleep(0.01)
 
