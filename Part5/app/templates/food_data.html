@@ -1,0 +1,29 @@
+<table border="1" cellpadding="5" cellspacing="5">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Allergy Lab Product</td>
+        <td>Serving Size (g)</td>
+        <td>Gluten (g)</td>
+        <td>Lactose (g)</td>
+        <td>Egg (g)</td>
+        <td>Alpha-gal (g)</td>
+        <td>Ara h 1 (g)</td>
+        <td>Ara h 3 (g)</td>
+        <td>Fructose (g)</td>
+        <td>Action</td>
+    </tr>
+    {% for row in data %}
+        <tr>
+        {% for d in row %}
+            <td>{{ d }}</td>
+        {% endfor %}
+            <td>
+                <form method="post" action="/submit">
+                    <input type="hidden" name="button_identifier" value={{row[0]}} />
+                    <input type="submit" value="Submit Order" name="submit_button"/>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
