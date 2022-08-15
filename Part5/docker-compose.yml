@@ -1,0 +1,30 @@
+services:
+    dbhost:
+      image: quanticschool/103mysql
+    app:
+      build: app/.
+      ports: 
+        - 3006:3006
+      depends_on:
+        - dbhost
+        - redis-server
+    redis-server:
+      image: redis
+    email:
+      build: email/.
+      ports: 
+        - 25:25
+      depends_on:
+        - redis-server
+      environment:
+        TO_ADDRESS: <Enter Here>
+        FROM_ADDRESS: <Enter Here>
+        FROM_PASSWORD: <Enter Here>
+    db-loader:
+      build: db-loader/.
+      volumes: 
+        - <Enter Here>:/mnt/watchfolder/
+      environment:
+        FOLDER_PATH: /mnt/watchfolder/
+      depends_on:
+        - dbhost
