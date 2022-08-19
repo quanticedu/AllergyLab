@@ -26,6 +26,9 @@ services:
         - <Enter Here>:/mnt/watchfolder/
       environment:
         FOLDER_PATH: /mnt/watchfolder/
+        DB_NAME: 
+        DB_USER: 
+        DB_PASS: 
       depends_on:
         - dbhost
       restart: on-failure
