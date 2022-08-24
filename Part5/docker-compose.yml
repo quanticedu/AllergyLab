@@ -17,9 +17,9 @@ services:
       depends_on:
         - redis-server
       environment:
-        TO_ADDRESS: <Enter Here>
-        FROM_ADDRESS: <Enter Here>
-        FROM_PASSWORD: <Enter Here>
+        TO_ADDRESS: <your Quantic email>
+        FROM_ADDRESS: <new Gmail email>
+        FROM_PASSWORD: <Gmail app password>
     db-loader:
       build: db-loader/.
       volumes: 
