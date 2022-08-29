@@ -26,9 +26,9 @@ services:
         - <Enter Here>:/mnt/watchfolder/
       environment:
         FOLDER_PATH: /mnt/watchfolder/
-        DB_NAME: 
-        DB_USER: 
-        DB_PASS: 
+        DB_NAME: allergen_info
+        DB_USER: pythonapp
+        DB_PASS: secretPass123!
       depends_on:
         - dbhost
       restart: on-failure
