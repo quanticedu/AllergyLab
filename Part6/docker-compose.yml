@@ -17,18 +17,18 @@ services:
       depends_on:
         - redis-server
       environment:
-        TO_ADDRESS: <Enter Here>
-        FROM_ADDRESS: <Enter Here>
-        FROM_PASSWORD: <Enter Here>
+        TO_ADDRESS: <your Quantic email>
+        FROM_ADDRESS: <new Gmail email>
+        FROM_PASSWORD: <Gmail app password>
     db-loader:
       build: db-loader/.
       volumes: 
         - <Enter Here>:/mnt/watchfolder/
       environment:
         FOLDER_PATH: /mnt/watchfolder/
-        DB_NAME: 
-        DB_USER: 
-        DB_PASS: 
+        DB_NAME: allergen_info
+        DB_USER: pythonapp
+        DB_PASS: secretPass123!
       depends_on:
         - dbhost
       restart: on-failure
