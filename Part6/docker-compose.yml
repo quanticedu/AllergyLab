@@ -23,7 +23,7 @@ services:
     db-loader:
       build: db-loader/.
       volumes: 
-        - <Enter Here>:/mnt/watchfolder/
+        - <Enter Here>allergy-lab-watchfolder:/mnt/watchfolder/
       environment:
         FOLDER_PATH: /mnt/watchfolder/
         DB_NAME: allergen_info
