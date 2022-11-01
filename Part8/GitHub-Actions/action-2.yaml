@@ -1,0 +1,24 @@
+name: AllergyLab CI
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: docker-login
+          env:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        - name: docker build web-app
+          run: |
+            docker build ./app -t <Repository Name>/al-app:latest
+        - name: docker build db-loader
+          run: |
+            docker build ./db-loader -t <Repository Name>/al-db-loader:latest
+        - name: docker build email
+          run: |
+            docker build ./email -t <Repository Name>/al-email:latest
