@@ -27,7 +27,6 @@ jobs:
         needs: [build]
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
           - name: '**PLACEHOLDER** Deploy to Kubernetes'
             run: echo Placeholder for Deployment
           - name: run containers
