@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: <Repository Name>/al-app:v1
+        ports:
+        - containerPort: 3006
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: dbhost-secret
+              key: dbhost-user
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: dbhost-secret
+              key: dbhost-pass
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: dbhost-secret
+              key: dbhost-database
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: dbhost-config
+              key: dbhost-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  type: NodePort
+  selector:
+    app: app
+  ports:
+    - protocol: TCP
+      port: 3006
+      targetPort: 3006
+      nodePort: 30000
