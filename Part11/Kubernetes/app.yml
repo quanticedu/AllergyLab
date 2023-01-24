@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: quanticschool/al-app:v1
+        image: quanticschool/al-app:v3
         ports:
         - containerPort: 3006
         env:
