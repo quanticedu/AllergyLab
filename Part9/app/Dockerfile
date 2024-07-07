@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.6 as build
+FROM --platform=linux/amd64 python as build
 
 COPY . /app
 WORKDIR /app
