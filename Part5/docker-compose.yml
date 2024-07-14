@@ -28,4 +28,3 @@ services:
         FOLDER_PATH: /mnt/watchfolder/
       depends_on:
         - dbhost
-      restart: on-failure

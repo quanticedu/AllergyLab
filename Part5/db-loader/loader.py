@@ -5,7 +5,15 @@ import glob
 import time
 
 folder_path = os.environ['FOLDER_PATH']
-c, conn = connection()
+
+for attempt in range(5, 0, -1):
+    try:
+        c, conn = connection()
+        print("connected")
+        break
+    except Exception as e:
+        print(f"failed to connect due to {type(e)}, {attempt} retries left")
+        time.sleep(5)
 
 while True:
     try:
