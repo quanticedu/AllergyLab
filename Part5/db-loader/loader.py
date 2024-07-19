@@ -40,8 +40,8 @@ while True:
             # Remove the file once complete
             print("Complete - Removing File: ", filename)
             os.remove(filename)
-    except:
-        print("ERROR:")
+    except Exception as e:
+        print(f"ERROR: {e}")
     # Sleep for 5 seconds
     time.sleep(5)
 
