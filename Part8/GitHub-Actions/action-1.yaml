@@ -8,8 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker build web-app
-      run: docker build ./app -t <Repository Name>/al-app:latest
+      run: docker build ./app -t <DockerID>/al-app:latest
     - name: docker build db-loader
-      run: docker build ./db-loader -t <Repository Name>/al-db-loader:latest
+      run: docker build ./db-loader -t <DockerID>/al-db-loader:latest
     - name: docker build email
-      run: docker build ./email -t <Repository Name>/al-email:latest
+      run: docker build ./email -t <DockerID>/al-email:latest

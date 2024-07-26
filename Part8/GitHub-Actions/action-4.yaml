@@ -10,19 +10,19 @@ jobs:
     - name: docker-login
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: docker build web-app
-      run: docker build ./app -t <Repository Name>/al-app:latest
+      run: docker build ./app -t <DockerID>/al-app:latest
     - name: docker build db-loader
-      run: docker build ./db-loader -t <Repository Name>/al-db-loader:latest
+      run: docker build ./db-loader -t <DockerID>/al-db-loader:latest
     - name: docker build email
-      run: docker build ./email -t <Repository Name>/al-email:latest
+      run: docker build ./email -t <DockerID>/al-email:latest
     - name: docker-push
       run: |
-        docker push <Repository Name>/al-app:latest
-        docker push <Repository Name>/al-db-loader:latest
-        docker push <Repository Name>/al-email:latest
+        docker push <DockerID>/al-app:latest
+        docker push <DockerID>/al-db-loader:latest
+        docker push <DockerID>/al-email:latest
   deploy:
     needs: [build]
     runs-on: ubuntu-latest
@@ -31,6 +31,6 @@ jobs:
       run: echo Placeholder for Deployment
     - name: run containers
       run: |
-         docker run -d <Repository Name>/al-app:latest
-         docker run -d <Repository Name>/al-db-loader:latest
-         docker run -d <Repository Name>/al-email:latest
+         docker run -d <DockerID>/al-app:latest
+         docker run -d <DockerID>/al-db-loader:latest
+         docker run -d <DockerID>/al-email:latest
