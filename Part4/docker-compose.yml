@@ -1,6 +1,6 @@
 services:
     dbhost:
-      image: quanticschool/103mysql
+      image: quanticschoolofbusiness/103mysql
     app:
       build: app/.
       ports: 
