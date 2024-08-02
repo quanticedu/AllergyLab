@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: <Repository Name>/al-app:v1
+        image: <DockerID>/al-app:v1
         ports:
         - containerPort: 3006
         env:

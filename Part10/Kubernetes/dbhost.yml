@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: dbhost
-        image: quanticschool/103mysql:latest
+        image: quanticschoolofbusiness/103mysql:latest
         ports:
         - containerPort: 3306
 ---
